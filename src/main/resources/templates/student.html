@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Language Application</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2" align="center">
+
+  <h3 style="color:rgb(36, 81, 192)">Welcome Student !</h3>
+  <h5 align="center" style="color:rgb(30, 114, 192)">Your information : </h5>
+  <table style="width:80%" border="1"
+         class = "table table-striped table-responsive-md">
+    <thead>
+    <tr align="center">
+      <th>Name</th>
+      <th>Level</th>
+      <th>Points</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr align="center" th:object="${studentId}">
+      <td th:text="*{name}"></td>
+      <td th:text="*{level}"></td>
+      <td th:text="*{points}"></td>
+    </tr>
+    </tbody>
+  </table>
+    <hr>
+    <h3 style="color:rgb(36, 81, 192)">Exercices List</h3>
+
+  <table style="width:80%" border="1"
+         class = "table table-striped table-responsive-md">
+    <thead>
+    <tr align="center">
+      <th>Exercise</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr align="center" th:each="exercise:${exercises}">
+      <td th:text="${exercise.name}"></td>
+      <td>
+        <a th:href="@{/executeexercise/{id}(id=${exercise.id})}"
+              class="btn btn-primary">Execute</a>
+<!-- добавить studentId.id -->
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <a th:href="@{/}"> Back to Main Page</a>
+</div>
+
+</body>
+</html>

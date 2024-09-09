@@ -1,0 +1,3 @@
+Access sentences and named entities, export annotations to #numpy# arrays, losslessly serialize to compressed binary strings.
+The most common way to get a #Doc# object is via the nlp object.
+Doc is a #container# for accessing linguistic annotations.

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Language Application</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2" align="center">
+
+  <h3 style="color:rgb(36, 81, 192)">Exercice</h3>
+  <!--  <a th:href="@{/addnew}" class="btn btn-primary btn-sm mb-3" >Add Student</a>-->
+  <br>
+  <p>Choose a good answer from the following words :</p>
+  <ul>
+    <p>correct</p>
+    <p>perfect</p>
+    <p>test</p>
+  </ul>
+  <br>
+  <form action="#" th:action="@{/answer}" th:object="${exercise}"
+        method="POST">
+    <input type="hidden" th:field="*{id}"
+           class="form-control mb-4 col-4">
+    <input type="hidden" th:field="*{studentId}"
+           class="form-control mb-4 col-4">
+    <input type="hidden" th:field="*{name}"
+           class="form-control mb-4 col-4">
+    <input type="hidden" th:field="*{phrase}" placeholder="Exercise"
+           class="form-control mb-4 col-4">
+    <input type="text" th:field="*{phraseForStudent}" placeholder="Exercise"
+           class="form-control mb-4 col-4">
+    <input type="text" th:field="*{answer}" placeholder="Give here the full phrase"
+           class="form-control mb-4 col-4">
+    <!--        <input type="number"-->
+    <!--               th:field="*{points}" placeholder="Points"-->
+    <!--               class="form-control mb-4 col-4">-->
+    <!--        <input type="text"-->
+    <!--               th:field="*{level}" placeholder="Student Level"-->
+    <!--               class="form-control mb-4 col-4">-->
+    <button type="submit" class="btn btn-info col-2">Execute</button>
+  </form>
+
+  <hr>
+
+<!--  <a th:href="@{/user/{id}(id=${studentId})}"> Back to Student Page</a>-->
+  <a th:href="@{/}"> Back to Main Page</a>
+</div>
+</body>
+</html>
